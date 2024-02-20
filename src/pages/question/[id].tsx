@@ -1,21 +1,25 @@
-import { QUESTION_TYPE_TO_COMPONENT } from '@/constants';
+import { QUESTION_TYPE_TO_COMPONENT } from '@/features/Questionnaire/constants';
+import { Question, Questionnaire } from '@/features/Questionnaire/types';
 import { QuestionRepository } from '@/lib/repositories';
-import { useRouter } from 'next/router';
 
 export async function getStaticPaths() {
-  const questions = await QuestionRepository.getAll();
-  console.log('getStaticPaths_res', questions);
+  const questionnaire: Questionnaire = await QuestionRepository.getAll();
 
-  const paths = Object.values(questions).map(({ id }) => ({
+  const paths = Object.values(questionnaire).map(({ id }) => ({
     params: { id },
   }));
 
   return { paths, fallback: false };
 }
 
-export async function getStaticProps({ params }) {
+interface ParamsWithId {
+  params: {
+    id: string;
+  };
+}
+
+export async function getStaticProps({ params }: ParamsWithId) {
   const question = await QuestionRepository.getById(params.id);
-  console.log('getStaticProps_res', question, params);
   return {
     props: {
       question,
@@ -23,8 +27,12 @@ export async function getStaticProps({ params }) {
   };
 }
 
-export default function Page({ question }) {
-  const router = useRouter();
+interface Props {
+  question: Question;
+}
+
+export default function Page({ question }: Props) {
+  console.log('Question_Page_should_be_on_server', question);
   const QuestionComponent = QUESTION_TYPE_TO_COMPONENT[question.type];
   return <QuestionComponent question={question} />;
 }

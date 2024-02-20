@@ -11,11 +11,11 @@
       },
       {
         "label":"Female",
-        "value":"male"
+        "value":"female"
       }
     ],
     "next":{
-      "fieldId":"2"
+      "questionId":"2"
     }
   },
   "2":{
@@ -59,16 +59,26 @@
       }
     ],
     "next":{
-      "rules":[
-        {
-          "if":"2",
-          "oneOf":[
-            "single",
-            "relationship"
-          ],
-          "questionId":"4"
-        }
-      ]
+      "questionId":"4"
+    }
+  },
+  "15":{
+    "id":"15",
+    "field":"isParentInRelationShip",
+    "questionText":"Are you a parent?",
+    "type":"choice",
+    "options":[
+      {
+        "label":"Yes",
+        "value":"yes"
+      },
+      {
+        "label":"No",
+        "value":"no"
+      }
+    ],
+    "next":{
+      "questionId":"6"
     }
   },
   "4":{
@@ -87,7 +97,7 @@
       }
     ],
     "next":{
-      "fieldId":"5"
+      "questionId":"5"
     }
   },
   "5":{
@@ -149,7 +159,7 @@
       }
     ],
     "next":{
-      "fieldId":"11"
+      "questionId":"11"
     }
   },
   "14":{
@@ -176,7 +186,7 @@
       }
     ],
     "next":{
-      "fieldId":"11"
+      "questionId":"11"
     }
   },
   "6":{
@@ -203,7 +213,7 @@
       }
     ],
     "next":{
-      "fieldId":"7"
+      "questionId":"7"
     }
   },
   "7":{
@@ -226,7 +236,7 @@
       }
     ],
     "next":{
-      "fieldId":"8"
+      "questionId":"8"
     }
   },
   "8":{
@@ -245,7 +255,7 @@
       }
     ],
     "next":{
-      "fieldId":"9"
+      "questionId":"9"
     }
   },
   "9":{
@@ -277,7 +287,7 @@
       }
     ],
     "next":{
-      "fieldId":"9"
+      "questionId":"9"
     }
   },
   "10":{
@@ -300,7 +310,7 @@
       }
     ],
     "next":{
-      "fieldId":"10"
+      "questionId":"10"
     }
   },
   "11":{
@@ -371,7 +381,7 @@
       }
     ],
     "next":{
-      "href":"/questions/complete"
+      "href":"/question/complete"
     }
   }
 }

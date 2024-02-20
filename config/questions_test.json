@@ -356,7 +356,7 @@
       },
     ],
     next: {
-      href: "/questions/complete",
+      href: "/question/complete",
     }
   }
 }

@@ -1,12 +1,13 @@
-import SubmitButton from './SubmitButton';
+import { Question } from '../../types';
+import SubmitButton from '../SubmitButton';
 
 interface ChoiceQuestionProps {
-  label: string;
-  onClick: () => void;
+  question: Question;
 }
-export default function ChoiceQuestion({ question }) {
-  const { id, questionText, options, next } = question;
+export default function ChoiceQuestion({ question }: ChoiceQuestionProps) {
+  const { id, questionText, options } = question;
   console.log('ChoiceQuestion', options);
+
   return (
     <>
       <div
@@ -24,7 +25,12 @@ export default function ChoiceQuestion({ question }) {
         </div>
         <div className="mt-6">
           {options.map(({ label, value }) => (
-            <SubmitButton key={value} label={label} nextStep={next} />
+            <SubmitButton
+              key={value}
+              label={label}
+              value={value}
+              question={question}
+            />
           ))}
         </div>
       </div>

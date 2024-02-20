@@ -1,10 +1,12 @@
 export type QuestionType = 'choice';
+
 export type ChoiceQuestionOption = {
   label: string;
   value: string;
 };
+
 export interface QuestionNextField {
-  fieldId: string;
+  questionId: string;
 }
 export type QuestionNextRule =
   | {
@@ -43,6 +45,7 @@ export interface Question {
     | QuestionNextStandalonePage
     | QuestionNextIntermediatePageWithRules;
 }
+
 export interface Questionnaire {
   [id: Question['id']]: Question;
 }
