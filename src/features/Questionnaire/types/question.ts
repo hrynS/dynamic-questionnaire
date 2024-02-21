@@ -1,4 +1,4 @@
-export type QuestionType = 'choice';
+export type QuestionType = 'choice' | 'slider';
 
 export type ChoiceQuestionOption = {
   label: string;
@@ -8,6 +8,22 @@ export type ChoiceQuestionOption = {
 export interface QuestionNextField {
   questionId: string;
 }
+
+export type DynamicQuestionTextRule =
+  | {
+      if: string;
+      is: string;
+      replaceWith: string;
+    }
+  | {
+      if: string;
+      oneOf: string[];
+      replaceWith: string;
+    }
+  | {
+      replaceWith: string;
+    };
+
 export type QuestionNextRule =
   | {
       if: string;
@@ -33,10 +49,14 @@ export interface QuestionNextIntermediatePageWithRules
   href: string;
 }
 
-export interface Question {
+export interface ChoiceQuestion {
   id: string;
   field: string;
-  questionText: string;
+  questionText: {
+    raw: string;
+    statement?: string;
+    rules?: DynamicQuestionTextRule[];
+  };
   type: QuestionType;
   options: ChoiceQuestionOption[];
   next:
@@ -44,6 +64,13 @@ export interface Question {
     | QuestionNextWithRules
     | QuestionNextStandalonePage
     | QuestionNextIntermediatePageWithRules;
+}
+
+export type Question = ChoiceQuestion;
+
+export interface QuestionFieldValueByType {
+  choice: ChoiceQuestionOption['value'];
+  slider: Date;
 }
 
 export interface Questionnaire {

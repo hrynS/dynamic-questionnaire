@@ -1,3 +1,4 @@
+import QuestionText from '@/features/Questionnaire/components/QuestionText';
 import { Question } from '../../types';
 import SubmitButton from '../SubmitButton';
 
@@ -18,10 +19,7 @@ export default function ChoiceQuestion({ question }: ChoiceQuestionProps) {
           <button className="text-gray-400">
             <i className="fas fa-chevron-left"></i>
           </button>
-          <p className="text-sm text-gray-800 text-center flex-1 mx-4">
-            {questionText}
-          </p>
-          <div></div>
+          <QuestionText questionText={questionText} />
         </div>
         <div className="mt-6">
           {options.map(({ label, value }) => (

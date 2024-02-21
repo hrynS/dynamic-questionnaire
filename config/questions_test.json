@@ -72,11 +72,42 @@
       ]
     }
   },
+  "15":{
+    "id":"15",
+    "field":"isParentInRelationShip",
+    "questionText":"Are you a parent?",
+    "type":"choice",
+    "options":[
+      {
+        "label":"Yes",
+        "value":"yes"
+      },
+      {
+        "label":"No",
+        "value":"no"
+      }
+    ],
+    "next":{
+      "questionId":"6"
+    }
+  },
   "4": {
     id: "4",
     field: "inRelationshipHappiness",
     //      TODO: what to do with a dynamic questions?
-    questionText: "{{Gender}} {{who have children (if have children)}} need a slightly different approach to improve their relationship. Which statement best describes you?",
+    "questionText": {
+      "raw": "{{Gender}} {{who have children (if have children)}} need a slightly different approach to improve their relationship. Which statement best describes you?",
+      "rules": [
+        {
+          "replaceWith": "1",
+        },
+        {
+          "if": "3",
+          "is": "yes",
+          "replaceWith": "who have children"
+        }
+      ]
+    },
     type: "choice",
     options: [
       {
@@ -112,7 +143,7 @@
       },
     ],
     next: {
-      //    TODO: unify
+      //    TODO: unify - make a catch-all
       href: "/how-does-this-work/{{next question id}}",
       rules: [
         {
@@ -183,7 +214,20 @@
   "6": {
     id: "6",
     field: "singleHappiness",
-    questionText: "Single {{gender}} {{who have children (if have children)}} need a slightly different approach to find their perfect partner. But first, how did you feel in your last relationship?",
+    "questionText": {
+// TODO: make all questionsText normalized according to the sentence case
+      "raw": "Single {{gender}} {{who have children (if have children)}} need a slightly different approach to find their perfect partner. But first, how did you feel in your last relationship?",
+      "rules": [
+        {
+          "replaceWith": "1",
+        },
+        {
+          "if": "15",
+          "is": "yes",
+          "replaceWith": "who have children"
+        }
+      ]
+    },
     type: "choice",
     options: [
       {

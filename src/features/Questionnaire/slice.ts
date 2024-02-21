@@ -1,17 +1,19 @@
-import { Question, SetFieldValueAction } from '@/features/Questionnaire/types';
+import {
+  QuestionnaireState,
+  SetFieldValueAction,
+} from '@/features/Questionnaire/types';
 import { createSlice } from '@reduxjs/toolkit';
-
-export interface QuestionnaireState {
-  [id: Question['id']]: {
-    field: Question['field'];
-    value: string;
-  };
-}
 
 const initialState: QuestionnaireState = {
   '1': {
     field: 'gender',
     value: 'male',
+    label: 'Male',
+  },
+  '3': {
+    field: 'isSingleParent',
+    value: 'no',
+    label: 'Yes',
   },
 };
 
@@ -21,11 +23,10 @@ export const questionnaireSlice = createSlice({
   reducers: {
     setFieldValue(
       state: QuestionnaireState,
-      { payload: { id, field, value } }: SetFieldValueAction,
+      { payload: { id, ...values } }: SetFieldValueAction,
     ) {
       state[id] = {
-        field,
-        value,
+        ...values,
       };
     },
   },
