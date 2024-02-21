@@ -7,7 +7,7 @@ import { setFieldValue } from '@/features/Questionnaire/slice';
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Question, QuestionFieldValueByType, QuestionType } from '../types';
-import Button, { BaseButtonProps } from '../../../components/elements/Button';
+import { Button, BaseButtonProps } from '@/components';
 
 interface SubmitButtonProps<Value> extends Omit<BaseButtonProps, 'onClick'> {
   question: Question;

@@ -1,6 +1,8 @@
+import '@/features/Questionnaire/styles.css';
 import { QUESTION_TYPE_TO_COMPONENT } from '@/features/Questionnaire/constants';
 import { Question, Questionnaire } from '@/features/Questionnaire/types';
 import { QuestionRepository } from '@/lib/repositories';
+import Head from 'next/head';
 
 export async function getStaticPaths() {
   const questionnaire: Questionnaire = await QuestionRepository.getAll();
@@ -34,5 +36,12 @@ interface Props {
 export default function Page({ question }: Props) {
   console.log('Question_Page_should_be_on_server', question);
   const QuestionComponent = QUESTION_TYPE_TO_COMPONENT[question.type];
-  return <QuestionComponent question={question} />;
+  return (
+    <>
+      <Head>
+        <title>Questionnaire</title>
+      </Head>
+      <QuestionComponent question={question} />
+    </>
+  );
 }

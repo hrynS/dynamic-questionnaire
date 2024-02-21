@@ -1,1 +1,2 @@
-export { default as ChoiceQuestion } from '@/features/Questionnaire/components/questions/Choice';
+export { default as Button, type BaseButtonProps } from './elements/Button';
+export { default as PageHeader } from './elements/PageHeader';

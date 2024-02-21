@@ -1,0 +1,21 @@
+.question-section {
+    max-width: 330px;
+}
+
+.option {
+    box-shadow: 2px 2px 6px rgba(84, 60, 151, 0.25);
+}
+
+.chevron {
+    background: url('/chevron.svg') no-repeat;
+    background-size: cover;
+    width: 24px;
+    height: 24px;
+}
+
+.logo {
+    background: url('/logo.svg') no-repeat;
+    background-size: cover;
+    width: 16px;
+    height: 16px;
+}

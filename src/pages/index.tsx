@@ -1,11 +1,5 @@
-import { Open_Sans } from 'next/font/google';
-
-const openSans = Open_Sans({ subsets: ['latin'] });
+import Link from 'next/link';
 
 export default function Home() {
-  return (
-    <main
-      className={`flex min-h-screen flex-col items-center justify-between p-24 ${openSans.className}`}
-    ></main>
-  );
+  return <Link href={'/question/1'}>Start questionnaire</Link>;
 }

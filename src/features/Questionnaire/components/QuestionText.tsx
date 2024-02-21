@@ -11,12 +11,12 @@ export default function QuestionText({ questionText }: QuestionTextProps) {
 
   return (
     <>
-      <p className="text-sm text-gray-800 text-center flex-1 mx-4">
+      <h1 className="flex font-bold text-2xl mb-2">
         {'rawText' in displayText
           ? displayText.rawText
           : displayText.dynamicText}
-      </p>
-      {statement ? <div>{statement}</div> : null}
+      </h1>
+      {statement ? <p className="flex font-bold text-lg">{statement}</p> : null}
     </>
   );
 }

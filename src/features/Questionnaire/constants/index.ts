@@ -1,4 +1,4 @@
-import { ChoiceQuestion } from '@/components';
+import ChoiceQuestion from '../components/questions/Choice';
 
 const CHOICE_QUESTION_TYPE = 'choice';
 
