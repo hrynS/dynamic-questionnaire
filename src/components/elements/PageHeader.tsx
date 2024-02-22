@@ -32,7 +32,7 @@ export default function PageHeader({
           />
         </button>
       ) : null}
-      <LogoSvg alt="logo" width={16} height={16} />
+      <LogoSvg width={16} height={16} />
     </header>
   );
 }

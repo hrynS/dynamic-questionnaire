@@ -1,3 +1,4 @@
+import { Question } from '@/features/Questionnaire/types';
 import { jest, beforeEach, describe, it, expect } from '@jest/globals';
 import { RootState } from '@/app/store';
 import { useMemoizedSubmitAction } from '@/features/Questionnaire/hooks/useQuestionSubmitAction';
@@ -57,9 +58,12 @@ describe('useQuestionSubmitAction', () => {
 
       const {
         result: { current: createSubmitAction },
-      } = renderHook(() => useMemoizedSubmitAction(question, questionnaire), {
-        wrapper,
-      });
+      } = renderHook(
+        () => useMemoizedSubmitAction(question as Question, questionnaire),
+        {
+          wrapper,
+        },
+      );
       // Assuming the action was triggered on Next button click
       createSubmitAction(questionnaire)();
 
@@ -84,9 +88,12 @@ describe('useQuestionSubmitAction', () => {
 
       const {
         result: { current: createSubmitAction },
-      } = renderHook(() => useMemoizedSubmitAction(question, questionnaire), {
-        wrapper,
-      });
+      } = renderHook(
+        () => useMemoizedSubmitAction(question as Question, questionnaire),
+        {
+          wrapper,
+        },
+      );
       // Assuming the action was triggered on Next button click
       createSubmitAction(questionnaire)();
 
@@ -120,9 +127,12 @@ describe('useQuestionSubmitAction', () => {
 
       const {
         result: { current: createSubmitAction },
-      } = renderHook(() => useMemoizedSubmitAction(question, questionnaire), {
-        wrapper,
-      });
+      } = renderHook(
+        () => useMemoizedSubmitAction(question as Question, questionnaire),
+        {
+          wrapper,
+        },
+      );
       // Assuming the action was triggered on Next button click
       createSubmitAction(questionnaire)();
 
@@ -145,9 +155,12 @@ describe('useQuestionSubmitAction', () => {
 
       const {
         result: { current: createSubmitAction },
-      } = renderHook(() => useMemoizedSubmitAction(question, questionnaire), {
-        wrapper,
-      });
+      } = renderHook(
+        () => useMemoizedSubmitAction(question as Question, questionnaire),
+        {
+          wrapper,
+        },
+      );
       // Assuming the action was triggered on Next button click
       createSubmitAction(questionnaire)();
 
@@ -168,9 +181,12 @@ describe('useQuestionSubmitAction', () => {
 
       const {
         result: { current: createSubmitAction },
-      } = renderHook(() => useMemoizedSubmitAction(question, questionnaire), {
-        wrapper,
-      });
+      } = renderHook(
+        () => useMemoizedSubmitAction(question as Question, questionnaire),
+        {
+          wrapper,
+        },
+      );
       // Assuming the action was triggered on Next button click
       const handleSubmit = createSubmitAction(questionnaire);
 

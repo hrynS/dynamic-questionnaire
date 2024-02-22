@@ -9,7 +9,7 @@
     "lint": "next lint",
     "pre-commit": "lint-staged",
     "prepare": "husky",
-    "prettify": "./node_modules/.bin/prettier --write './src/**/*.{,ts,tsx}'",
+    "prettify": "prettier --write './src/**/*.{,ts,tsx}'",
     "test": "jest"
   },
   "dependencies": {
@@ -48,7 +48,7 @@
     "./src/**/*.{ts,tsx}": [
       "prettier --write",
       "eslint --fix",
-      "bash -c 'yarn tsc-files'"
+      "tsc-files --noEmit"
     ]
   }
 }
