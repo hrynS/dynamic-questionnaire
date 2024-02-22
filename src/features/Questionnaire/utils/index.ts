@@ -8,9 +8,11 @@ import {
 export const getQuestionUrl = (questionId: QuestionNextRule['questionId']) =>
   `${BASE_PATHNAME}/${questionId}`;
 
+export const getNextUrl = (url: string) => `${BASE_PATHNAME}${url}`;
+
 export const getIntermediatePageUrl =
   (nextPathname: string) => (questionId: QuestionNextRule['questionId']) =>
-    `${BASE_PATHNAME}/${nextPathname}?questionId=${questionId}`;
+    `${BASE_PATHNAME}${nextPathname}?questionId=${questionId}`;
 
 export const getNextQuestionUrlFromRules = (
   rules: QuestionNextRule[],

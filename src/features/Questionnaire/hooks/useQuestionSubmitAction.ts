@@ -3,6 +3,7 @@ import { Question, QuestionnaireState } from '@/features/Questionnaire/types';
 import {
   getIntermediatePageUrl,
   getNextQuestionUrlFromRules,
+  getNextUrl,
   getQuestionUrl,
 } from '@/features/Questionnaire/utils';
 import { useRouter } from 'next/router';
@@ -22,8 +23,6 @@ export const useMemoizedSubmitAction = (
   questionnaire: QuestionnaireState,
 ) => {
   const router = useRouter();
-
-  console.log('useQuestionSubmitAction', questionnaire);
   const createOnSubmitAction = useCallback(
     (questionnaire: QuestionnaireState) => {
       const { id, next } = question;
@@ -43,7 +42,7 @@ export const useMemoizedSubmitAction = (
         };
       case 'href' in next:
         return () => {
-          router.push(next.href);
+          router.push(getNextUrl(next.href));
         };
       case 'rules' in next:
         return () => {
@@ -52,7 +51,7 @@ export const useMemoizedSubmitAction = (
             questionnaire,
             getQuestionUrl,
           );
-          console.log('only_rules', url);
+
           raiseErrorOnEmptyUrl(id, url);
 
           if (url) router.push(url);
