@@ -2,7 +2,7 @@ import { PropsWithChildren } from 'react';
 
 export interface BaseButtonProps extends PropsWithChildren {
   className?: string;
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 export default function Button({

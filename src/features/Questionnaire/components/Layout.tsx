@@ -30,9 +30,7 @@ export default function Layout({
       <main
         className={`h-full w-full flex flex-col items-center justify-between sm:pt-14 pt-12 ${mainClassName} ${openSans.className}`}
       >
-        <div className="question-section flex flex-col items-center text-center pt-4 gap-y-7">
-          {children}
-        </div>
+        {children}
       </main>
     </div>
   );

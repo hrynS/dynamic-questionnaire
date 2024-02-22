@@ -34,7 +34,7 @@ interface Props {
   question: Question;
 }
 
-export default function Page({ question }: Props) {
+export default function QuestionPage({ question }: Props) {
   console.log('Question_Page_should_be_on_server', question);
   const QuestionComponent = QUESTION_TYPE_TO_COMPONENT[question.type];
   return (
@@ -42,7 +42,9 @@ export default function Page({ question }: Props) {
       <Head>
         <title>Questionnaire</title>
       </Head>
-      <QuestionComponent question={question} />
+      <section className="question-section flex flex-col items-center text-center pt-4 gap-y-7">
+        <QuestionComponent question={question} />
+      </section>
     </Layout>
   );
 }
