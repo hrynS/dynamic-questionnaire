@@ -1,4 +1,5 @@
-import '@/features/Questionnaire/styles.css';
+import '@/features/Questionnaire/styles/questionnaire.css';
+import Layout from '@/features/Questionnaire/components/Layout';
 import { QUESTION_TYPE_TO_COMPONENT } from '@/features/Questionnaire/constants';
 import { Question, Questionnaire } from '@/features/Questionnaire/types';
 import { QuestionRepository } from '@/lib/repositories';
@@ -37,11 +38,11 @@ export default function Page({ question }: Props) {
   console.log('Question_Page_should_be_on_server', question);
   const QuestionComponent = QUESTION_TYPE_TO_COMPONENT[question.type];
   return (
-    <>
+    <Layout>
       <Head>
         <title>Questionnaire</title>
       </Head>
       <QuestionComponent question={question} />
-    </>
+    </Layout>
   );
 }

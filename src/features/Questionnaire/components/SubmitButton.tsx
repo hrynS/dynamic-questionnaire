@@ -19,27 +19,22 @@ export default function SubmitButton<
   Value extends QuestionFieldValueByType[QuestionType],
 >({ value, label, question }: SubmitButtonProps<Value>) {
   const dispatch = useAppDispatch();
-  const questionnaire = useSelector(questionnaireSelector);
-  const handleSubmit = useQuestionSubmitAction(question, questionnaire);
-
-  useEffect(() => {
-    if (questionnaire[question.id]?.value) {
-      handleSubmit();
-    }
-  }, [handleSubmit, questionnaire, question.id]);
+  const setShouldSubmitQuestion = useQuestionSubmitAction(question);
 
   const onAnswer = () => {
-    dispatch(
-      setFieldValue({ id: question.id, field: question.field, value, label }),
-    );
+    const { id, field } = question;
+    setShouldSubmitQuestion(true);
+    dispatch(setFieldValue({ id, field, value, label }));
   };
 
   return (
     <Button
-      label={label}
+      className={'button rounded-2xl bg-secondary-white'}
       onClick={() => {
         onAnswer();
       }}
-    />
+    >
+      {label}
+    </Button>
   );
 }

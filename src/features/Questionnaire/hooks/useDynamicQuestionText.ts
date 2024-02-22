@@ -22,7 +22,7 @@ export const useDynamicQuestionText = (
       rawText: raw,
     };
   }
-
+  console.log('useDynamicQuestionText', questionnaire);
   const orderedDynamicInsertions = getDynamicQuestionPartsFromRules(
     rules,
     questionnaire,

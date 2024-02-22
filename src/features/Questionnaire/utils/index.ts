@@ -5,43 +5,30 @@ import {
   QuestionNextRule,
 } from '@/features/Questionnaire/types';
 import { replacePlaceholdersInString } from '@/lib/utils';
+export const getQuestionUrl = (questionId: QuestionNextRule['questionId']) =>
+  `${BASE_PATHNAME}/${questionId}`;
 
-// export function checkQuestionRule<Rule, Callback extends Function>(rule: Rule, state: QuestionnaireState, callback: Callback) {
-//   const stateFieldValue = state[rule.if].value;
-//
-//   if ('oneOf' in rule) {
-//     if (rule.oneOf.includes(stateFieldValue)) {
-//       return callback(rule);
-//     }
-//   } else {
-//     if (rule.is === stateFieldValue) {
-//       return callback(rule);
-//     }
-//   }
-// }
+export const getIntermediatePageUrl =
+  (nextPathname: string) => (questionId: QuestionNextRule['questionId']) =>
+    `${BASE_PATHNAME}/${nextPathname}?questionId=${questionId}`;
 
 export const getNextQuestionUrlFromRules = (
   rules: QuestionNextRule[],
   questionnaire: QuestionnaireState,
+  generateTargetUrl: (questionId: QuestionNextRule['questionId']) => string,
 ): string | undefined => {
   for (let i = 0; i < rules.length; i++) {
-    debugger;
     const rule = rules[i];
-    // const getUrl = (rule: QuestionNextRule) => `${BASE_PATHNAME}/${rule.questionId}`;
-    //
-    // const result = checkQuestionRule<QuestionNextRule, typeof getUrl>(rule, questionnaire, getUrl);
-    //
-    // if (result) return result;
 
-    const stateFieldValue = questionnaire[rule.if].value;
+    const stateFieldValue = questionnaire[rule.if].value ?? '';
 
     if ('oneOf' in rule) {
       if (rule.oneOf.includes(stateFieldValue)) {
-        return `${BASE_PATHNAME}/${rule.questionId}`;
+        return generateTargetUrl(rule.questionId);
       }
     } else {
       if (rule.is === stateFieldValue) {
-        return `${BASE_PATHNAME}/${rule.questionId}`;
+        return generateTargetUrl(rule.questionId);
       }
     }
   }
@@ -56,7 +43,7 @@ export const getDynamicQuestionPartsFromRules = (
       rule.replaceWith && Object.keys(rule).length === 1;
 
     if (isSimpleReplacement) {
-      return questionnaire[rule.replaceWith].label;
+      return questionnaire[rule.replaceWith]?.label ?? '';
     }
 
     const stateFieldValue = 'if' in rule ? questionnaire[rule.if]?.value : '';

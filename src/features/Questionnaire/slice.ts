@@ -5,16 +5,21 @@ import {
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState: QuestionnaireState = {
-  '1': {
-    field: 'gender',
-    value: 'male',
-    label: 'Male',
-  },
-  '3': {
-    field: 'isSingleParent',
-    value: 'no',
-    label: 'Yes',
-  },
+  // '1': {
+  //   field: 'gender',
+  //   value: 'male',
+  //   label: 'Male',
+  // },
+  // '3': {
+  //   field: 'isSingleParent',
+  //   value: 'no',
+  //   label: 'No',
+  // },
+  // '5': {
+  //   field: 'blah',
+  //   value: 'no',
+  //   label: 'No',
+  // },
 };
 
 export const questionnaireSlice = createSlice({

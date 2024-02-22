@@ -43,6 +43,11 @@
           "if":"2",
           "is":"single",
           "questionId":"3"
+        },
+        {
+          "if":"2",
+          "is":"relationship",
+          "questionId":"15"
         }
       ]
     }
@@ -99,32 +104,11 @@
           "replaceWith":"1"
         },
         {
-          "if":"3",
+          "if":"15",
           "is":"yes",
           "replaceWith":"who have children"
         }
       ]
-    },
-    "type":"choice",
-    "options":[
-      {
-        "label":"Yes",
-        "value":"yes"
-      },
-      {
-        "label":"No",
-        "value":"no"
-      }
-    ],
-    "next":{
-      "questionId":"5"
-    }
-  },
-  "5":{
-    "id":"5",
-    "field":"tendsToOverthinking",
-    "questionText":{
-      "raw":"Are any of these factors currently affecting your relationship?"
     },
     "type":"choice",
     "options":[
@@ -142,7 +126,28 @@
       }
     ],
     "next":{
-      "href":"/how-does-this-work/{{next question id}}",
+      "questionId":"7"
+    }
+  },
+  "5":{
+    "id":"5",
+    "field":"tendsToOverthinking",
+    "questionText":{
+      "raw":"Do you tend to overthink?"
+    },
+    "type":"choice",
+    "options":[
+      {
+        "label":"Yes",
+        "value":"yes"
+      },
+      {
+        "label":"No",
+        "value":"no"
+      }
+    ],
+    "next":{
+      "href":"/how-does-this-work",
       "rules":[
         {
           "if":"5",
@@ -225,7 +230,7 @@
           "replaceWith":"1"
         },
         {
-          "if":"15",
+          "if":"3",
           "is":"yes",
           "replaceWith":"who have children"
         }
@@ -251,7 +256,7 @@
       }
     ],
     "next":{
-      "questionId":"7"
+      "questionId":"5"
     }
   },
   "7":{
@@ -293,7 +298,7 @@
       },
       {
         "label":"Female",
-        "value":"male"
+        "value":"female"
       }
     ],
     "next":{
@@ -331,7 +336,7 @@
       }
     ],
     "next":{
-      "questionId":"9"
+      "questionId":"10"
     }
   },
   "10":{
@@ -356,7 +361,7 @@
       }
     ],
     "next":{
-      "questionId":"10"
+      "questionId":"11"
     }
   },
   "11":{

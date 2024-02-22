@@ -1,3 +1,5 @@
+'use client';
+
 import { useDynamicQuestionText } from '@/features/Questionnaire/hooks';
 import { Question } from '@/features/Questionnaire/types';
 
@@ -11,12 +13,14 @@ export default function QuestionText({ questionText }: QuestionTextProps) {
 
   return (
     <>
-      <h1 className="flex font-bold text-2xl mb-2">
+      <h1 className="text-primary-black font-bold text-2xl mb-2">
         {'rawText' in displayText
           ? displayText.rawText
           : displayText.dynamicText}
       </h1>
-      {statement ? <p className="flex font-bold text-lg">{statement}</p> : null}
+      {statement ? (
+        <p className="text-primary-black font-bold text-lg">{statement}</p>
+      ) : null}
     </>
   );
 }

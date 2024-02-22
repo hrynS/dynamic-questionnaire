@@ -1,4 +1,4 @@
-export type QuestionType = 'choice' | 'slider';
+export type QuestionType = 'choice';
 
 export type ChoiceQuestionOption = {
   label: string;
@@ -70,7 +70,6 @@ export type Question = ChoiceQuestion;
 
 export interface QuestionFieldValueByType {
   choice: ChoiceQuestionOption['value'];
-  slider: Date;
 }
 
 export interface Questionnaire {
