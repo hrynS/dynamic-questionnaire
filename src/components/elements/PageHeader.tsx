@@ -11,7 +11,7 @@ export interface PageHeaderProps {
 
 export default function PageHeader({
   isNavigateable,
-  isLight,
+  isLight = true,
 }: PageHeaderProps) {
   const router = useRouter();
 

@@ -10,16 +10,12 @@ export default function Page() {
   const { questionId } = router.query;
 
   return (
-    <Layout
-      headerProps={{
-        isLight: true,
-      }}
-      mainClassName={'bg-gradient-primary'}
-    >
+    <Layout mainClassName={'bg-gradient-primary'}>
       <Head>
         <title>How does this work?</title>
       </Head>
       <Section
+        className={'question-section'}
         heading={'So how does it work?'}
         text={
           'We analyze hundreds of data points to create your unique astrological\n' +

@@ -20,7 +20,13 @@ export const getNextQuestionUrlFromRules = (
   for (let i = 0; i < rules.length; i++) {
     const rule = rules[i];
 
-    const stateFieldValue = questionnaire[rule.if].value ?? '';
+    if (!rule.questionId) {
+      throw new Error(
+        'There is no question id in rule. Check the questionnaire configuration.',
+      );
+    }
+
+    const stateFieldValue = questionnaire[rule.if].value;
 
     if ('oneOf' in rule) {
       if (rule.oneOf.includes(stateFieldValue)) {
@@ -43,7 +49,7 @@ export const getDynamicQuestionPartsFromRules = (
       rule.replaceWith && Object.keys(rule).length === 1;
 
     if (isSimpleReplacement) {
-      return questionnaire[rule.replaceWith]?.label ?? '';
+      return questionnaire[rule.replaceWith]?.label;
     }
 
     const stateFieldValue = 'if' in rule ? questionnaire[rule.if]?.value : '';

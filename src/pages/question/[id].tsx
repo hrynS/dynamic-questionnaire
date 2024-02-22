@@ -38,7 +38,11 @@ export default function QuestionPage({ question }: Props) {
   console.log('Question_Page_should_be_on_server', question);
   const QuestionComponent = QUESTION_TYPE_TO_COMPONENT[question.type];
   return (
-    <Layout>
+    <Layout
+      headerProps={{
+        isLight: false,
+      }}
+    >
       <Head>
         <title>Questionnaire</title>
       </Head>

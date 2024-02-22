@@ -10,6 +10,14 @@ import { useRouter } from 'next/router';
 import { useCallback, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
+const raiseErrorOnEmptyUrl = (id: Question['id'], url?: string) => {
+  if (!url) {
+    throw new Error(
+      `There is no url generated based on rule. Check the questionnaire configuration. Question id - ${id}`,
+    );
+  }
+};
+
 const useMemoizedSubmitAction = (
   question: Question,
   questionnaire: QuestionnaireState,
@@ -19,20 +27,21 @@ const useMemoizedSubmitAction = (
   console.log('useQuestionSubmitAction', questionnaire);
   const createOnSubmitAction = useCallback(
     (questionnaire: QuestionnaireState) => {
-      const { next } = question;
+      const { id, next } = question;
       console.log('createOnSubmitAction', questionnaire);
+      debugger;
       switch (true) {
         case 'href' in next && 'rules' in next:
           return () => {
-            console.log('result_func', questionnaire);
             const url = getNextQuestionUrlFromRules(
               next.rules,
               questionnaire,
               getIntermediatePageUrl(next.href),
             );
-            if (!url) return () => {};
 
-            router.push(url);
+            raiseErrorOnEmptyUrl(id, url);
+
+            if (url) router.push(url);
           };
         case 'href' in next:
           return () => {
@@ -45,9 +54,10 @@ const useMemoizedSubmitAction = (
               questionnaire,
               getQuestionUrl,
             );
-            if (!url) return () => {};
+            console.log('only_rules', url);
+            raiseErrorOnEmptyUrl(id, url);
 
-            router.push(url);
+            if (url) router.push(url);
           };
         case 'questionId' in next:
           return () => {
@@ -55,7 +65,9 @@ const useMemoizedSubmitAction = (
           };
         default:
           return () => {
-            //   TODO: consider throwing an error when url is not resolved
+            throw new Error(
+              `There is no action on submit. Check the questionnaire configuration. Question id - ${id}`,
+            );
           };
       }
     },

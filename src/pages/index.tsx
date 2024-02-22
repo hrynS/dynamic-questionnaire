@@ -4,12 +4,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 export default function Home() {
   return (
-    <Layout
-      headerProps={{
-        isLight: true,
-      }}
-      mainClassName={'bg-gradient-primary'}
-    >
+    <Layout mainClassName={'bg-gradient-primary'}>
       <Head>
         <title>Start the questionnaire</title>
       </Head>
