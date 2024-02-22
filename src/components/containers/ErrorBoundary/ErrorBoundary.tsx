@@ -1,8 +1,6 @@
-import { Button, Section } from '@/components';
 import ErrorSection from '@/components/containers/ErrorBoundary/ErrorSection';
 import Layout from '@/features/Questionnaire/components/Layout';
 import Head from 'next/head';
-import Link from 'next/link';
 import React, { PropsWithChildren } from 'react';
 
 class ErrorBoundary extends React.Component<

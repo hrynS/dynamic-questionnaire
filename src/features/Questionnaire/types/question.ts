@@ -49,14 +49,16 @@ export interface QuestionNextIntermediatePageWithRules
   href: string;
 }
 
+export interface QuestionText {
+  raw: string;
+  statement?: string;
+  rules?: DynamicQuestionTextRule[];
+}
+
 export interface ChoiceQuestion {
   id: string;
   field: string;
-  questionText: {
-    raw: string;
-    statement?: string;
-    rules?: DynamicQuestionTextRule[];
-  };
+  questionText: QuestionText;
   type: QuestionType;
   options: ChoiceQuestionOption[];
   next:

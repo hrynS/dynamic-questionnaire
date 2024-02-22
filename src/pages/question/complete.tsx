@@ -1,8 +1,6 @@
 import '@/features/Questionnaire/styles/questionnaire.css';
-import { BASE_PATHNAME } from '@/features/Questionnaire/constants';
 import Head from 'next/head';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import { Button, Section } from '@/components';
 import Layout from '@/features/Questionnaire/components/Layout';
 

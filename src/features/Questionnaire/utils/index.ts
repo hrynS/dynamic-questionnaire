@@ -4,7 +4,7 @@ import {
   QuestionnaireState,
   QuestionNextRule,
 } from '@/features/Questionnaire/types';
-import { replacePlaceholdersInString } from '@/lib/utils';
+
 export const getQuestionUrl = (questionId: QuestionNextRule['questionId']) =>
   `${BASE_PATHNAME}/${questionId}`;
 

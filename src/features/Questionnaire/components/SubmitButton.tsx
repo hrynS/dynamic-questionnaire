@@ -2,10 +2,7 @@
 
 import { useAppDispatch } from '@/app/hooks';
 import { useQuestionSubmitAction } from '@/features/Questionnaire/hooks';
-import { questionnaireSelector } from '@/features/Questionnaire/selectors';
 import { setFieldValue } from '@/features/Questionnaire/slice';
-import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
 import { Question, QuestionFieldValueByType, QuestionType } from '../types';
 import { Button, BaseButtonProps } from '@/components';
 

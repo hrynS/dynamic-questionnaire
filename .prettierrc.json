@@ -4,7 +4,7 @@
   "trailingComma": "es5",
   "overrides": [
     {
-      "files": ["src/**/*.ts?(x)", "./**/*.json"],
+      "files": ["src/**/*.ts?(x)", "src/**/*.test.ts?(x)"],
       "options": {
         "trailingComma": "all",
         "parser": "typescript"

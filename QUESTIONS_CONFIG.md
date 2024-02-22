@@ -104,7 +104,9 @@ Contains the raw question text and any rules for dynamically replacing content b
   }
 }
 ```
-- **raw**: String. The question text as displayed to the user, potentially including placeholders for dynamic content.
+- **raw**: String. The question text as displayed to the user, potentially including placeholders for dynamic 
+  content. If the first letter of a placeholder text is uppercase - the dynamic part will be capitalized, if 
+  lowercase - vice versa.
 - **rules**: Array (optional). Defines rules for replacing placeholders in the raw text, based on responses to 
   previous questions. **By default placeholder is {{}}**
 - **replaceWith**: String(optional). The value of question with this id will be used to replace a placeholder in the question 

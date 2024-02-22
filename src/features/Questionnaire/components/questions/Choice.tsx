@@ -7,7 +7,6 @@ interface ChoiceQuestionProps {
 }
 export default function ChoiceQuestion({ question }: ChoiceQuestionProps) {
   const { questionText, options } = question;
-  console.log('ChoiceQuestion', options);
 
   return (
     <>

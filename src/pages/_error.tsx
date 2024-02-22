@@ -4,15 +4,14 @@ import { NextPageContext } from 'next';
 import Head from 'next/head';
 
 interface ErrorProps {
-  status?: string;
+  statusCode?: string;
 }
 
-function Error({ status }: ErrorProps) {
-  console.log('Error_props', status);
+function Error({ statusCode }: ErrorProps) {
   return (
     <Layout mainClassName={'bg-gradient-primary'}>
       <Head>
-        <title>Something went wrong</title>
+        <title>{`Something went wrong ${statusCode && `- ${statusCode}`}`}</title>
       </Head>
       <ErrorSection />
     </Layout>
@@ -20,9 +19,8 @@ function Error({ status }: ErrorProps) {
 }
 
 Error.getInitialProps = ({ res, err }: NextPageContext) => {
-  console.log('Error.getInitialProps ', err);
-  const status = res ? res.statusCode : err ? err.statusCode : 404;
-  return { status };
+  const statusCode = res ? res.statusCode : err ? err.statusCode : 404;
+  return { statusCode };
 };
 
 export default Error;

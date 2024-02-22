@@ -1,7 +1,7 @@
 import { questionnaireSelector } from '@/features/Questionnaire/selectors';
 import { Open_Sans } from 'next/font/google';
 import { PropsWithChildren } from 'react';
-import { PageHeader, PageHeaderProps } from '@/components';
+import { PageHeader } from '@/components';
 import { useSelector } from 'react-redux';
 
 const openSans = Open_Sans({
