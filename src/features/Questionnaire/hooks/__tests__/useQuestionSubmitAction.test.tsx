@@ -1,7 +1,9 @@
+import {
+  useMemoizedSubmitAction
+} from '@/features/Questionnaire/hooks/useQuestionSubmitAction/useMemoizedSubmitAction';
 import { Question } from '@/features/Questionnaire/types';
 import { jest, beforeEach, describe, it, expect } from '@jest/globals';
 import { RootState } from '@/app/store';
-import { useMemoizedSubmitAction } from '@/features/Questionnaire/hooks/useQuestionSubmitAction';
 import { renderHook } from '@testing-library/react';
 import { PropsWithChildren } from 'react';
 import { Provider } from 'react-redux';

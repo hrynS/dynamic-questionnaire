@@ -1,6 +1,6 @@
 import '@/styles/globals.css';
 import { store } from '@/app/store';
-import ErrorBoundary from '@/components/containers/ErrorBoundary/ErrorBoundary';
+import { ErrorBoundary } from '@/components';
 import type { AppProps } from 'next/app';
 import { Provider } from 'react-redux';
 

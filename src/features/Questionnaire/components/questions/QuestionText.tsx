@@ -14,9 +14,7 @@ export default function QuestionText({ questionText }: QuestionTextProps) {
   return (
     <>
       <h1 className="text-primary-black font-bold text-2xl mb-2">
-        {'rawText' in displayText
-          ? displayText.rawText
-          : displayText.dynamicText}
+        {displayText}
       </h1>
       {statement ? (
         <p className="text-primary-black font-bold text-lg">{statement}</p>

@@ -1,2 +1,2 @@
-export { useQuestionSubmitAction } from './useQuestionSubmitAction';
+export { useQuestionSubmitAction } from './useQuestionSubmitAction/useQuestionSubmitAction';
 export { useDynamicQuestionText } from './useDynamicQuestionText';

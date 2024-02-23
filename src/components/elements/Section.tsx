@@ -9,7 +9,7 @@ interface SectionProps extends PropsWithChildren {
 export default function Section({
   heading,
   text,
-  className,
+  className = '',
   children,
 }: SectionProps) {
   return (

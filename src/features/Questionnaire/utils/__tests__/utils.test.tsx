@@ -1,7 +1,5 @@
-import {
-  getDynamicQuestionPartsFromRules,
-  getNextQuestionUrlFromRules,
-} from '@/features/Questionnaire/utils';
+import { getDynamicQuestionPartsFromRules } from '@/features/Questionnaire/utils';
+import { getNextQuestionUrlFromRules } from '@/features/Questionnaire/utils';
 import { describe, expect, it, jest } from '@jest/globals';
 
 describe('Questionnaire utils', () => {
@@ -82,11 +80,11 @@ describe('Questionnaire utils', () => {
 
     it('returns an array with replaced values based on "if" and "is" condition', () => {
       const rules = [
-        { if: 'q1', is: 'yes', replaceWith: 'Correct' },
+        { replaceWith: 'q1' },
         { if: 'q2', is: 'no', replaceWith: 'Incorrect' },
       ];
       const questionnaire = {
-        q1: { value: 'yes', label: 'Yes', field: 'baz' },
+        q1: { value: 'correct', label: 'Correct', field: 'baz' },
         q2: { value: 'yes', label: 'Yes', field: 'foo' },
       };
       const expected = ['Correct', ''];

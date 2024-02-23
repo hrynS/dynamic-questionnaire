@@ -1,40 +1,20 @@
-import { DYNAMIC_QUESTIONS_TEXT_REGEX } from '@/features/Questionnaire/constants';
+import { DYNAMIC_QUESTIONS_PLACEHOLDER_REGEX } from '@/features/Questionnaire/constants';
 import { questionnaireSelector } from '@/features/Questionnaire/selectors';
 import { Question } from '@/features/Questionnaire/types';
-import { getDynamicQuestionPartsFromRules } from '@/features/Questionnaire/utils';
-import {
-  capitalizeLetter,
-  isUpperCase,
-  logError,
-  lowercaseLetter,
-  replacePlaceholdersInString,
-} from '@/lib/utils';
+import { getDynamicQuestionPartsFromRules, normalizeDynamicText } from '@/features/Questionnaire/utils';
+import { logError, replacePlaceholdersInString } from '@/lib/utils';
 import { useSelector } from 'react-redux';
 
-const normalizeDynamicText = (key: string, dynamicInsertion: string) => {
-  if (isUpperCase(key.charAt(0))) {
-    return capitalizeLetter(dynamicInsertion);
-  } else {
-    return lowercaseLetter(dynamicInsertion);
-  }
-};
+let counter = 0;
 
 export const useDynamicQuestionText = (
   questionText: Question['questionText'],
-):
-  | {
-      rawText: string;
-    }
-  | {
-      dynamicText: string;
-    } => {
+): string => {
   const questionnaire = useSelector(questionnaireSelector);
   const { raw, rules } = questionText;
-
+debugger;
   if (!rules) {
-    return {
-      rawText: raw,
-    };
+    return raw;
   }
 
   const orderedDynamicInsertions = getDynamicQuestionPartsFromRules(
@@ -43,11 +23,15 @@ export const useDynamicQuestionText = (
   );
   const dynamicText = replacePlaceholdersInString(
     raw,
-    DYNAMIC_QUESTIONS_TEXT_REGEX,
-    (_, key) => {
+    DYNAMIC_QUESTIONS_PLACEHOLDER_REGEX,
+    (_, key, anotherThing) => {
       const insertion = orderedDynamicInsertions.shift();
-
+      debugger;
+      console.log('anotherThing',anotherThing);
+      counter++;
       if (!insertion) {
+        debugger;
+        console.log('SOMEHOW_GOES_HERE', insertion, new Date());
         logError(
           `There are no dynamic insertions generated for the question - ${raw}. Check the questionnaire configuration.`,
         );
@@ -57,8 +41,6 @@ export const useDynamicQuestionText = (
       return normalizeDynamicText(key, insertion);
     },
   );
-
-  return {
-    dynamicText,
-  };
+  console.log('counter', counter);
+  return dynamicText;
 };

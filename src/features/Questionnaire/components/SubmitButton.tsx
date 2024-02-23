@@ -1,6 +1,6 @@
 'use client';
 
-import { useAppDispatch } from '@/app/hooks';
+import { useAppDispatch } from '@/app/store/hooks';
 import { useQuestionSubmitAction } from '@/features/Questionnaire/hooks';
 import { setFieldValue } from '@/features/Questionnaire/slice';
 import { Question, QuestionFieldValueByType, QuestionType } from '../types';

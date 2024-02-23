@@ -15,7 +15,7 @@ interface Props extends PropsWithChildren {
 
 export default function Layout({
   children,
-  mainClassName,
+  mainClassName = '',
   headerProps,
 }: Props) {
   const questionnaire = useSelector(questionnaireSelector);

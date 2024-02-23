@@ -1,4 +1,4 @@
-import ErrorSection from '@/components/containers/ErrorBoundary/ErrorSection';
+import { ErrorSection } from '@/components';
 import Layout from '@/features/Questionnaire/components/Layout';
 import { NextPageContext } from 'next';
 import Head from 'next/head';

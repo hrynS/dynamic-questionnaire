@@ -8,4 +8,4 @@ export const QUESTION_TYPE_TO_COMPONENT = {
 
 export const BASE_PATHNAME = '/question';
 
-export const DYNAMIC_QUESTIONS_TEXT_REGEX = /{{(.*?)}}/g;
+export const DYNAMIC_QUESTIONS_PLACEHOLDER_REGEX = /{{(.*?)}}/g;

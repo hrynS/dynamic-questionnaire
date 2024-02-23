@@ -13,14 +13,20 @@ module.exports = {
       'destructuring': 'any',
       'ignoreReadBeforeAssign': false
     }],
-    'indent': ['error', 2],
+    'indent': ['error', 2, { 'SwitchCase': 1 }],
     'linebreak-style': ['error', 'unix'],
     'quotes': ['error', 'single'],
     'semi': ['error', 'always'],
     'prefer-arrow-callback': 'error',
     'prefer-template': 'error',
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'error'
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'error',
+    'padding-line-between-statements': [
+      'error',
+      { 'blankLine': 'always', 'prev': 'function', 'next': '*' },
+      { 'blankLine': 'always', 'prev': '*', 'next': 'function' },
+      { 'blankLine': 'always', 'prev': 'block-like', 'next': '*' },
+    ]
   },
   plugins: [
     '@typescript-eslint'

@@ -42,7 +42,7 @@ describe('useDynamicQuestionText', () => {
       wrapper,
     });
 
-    expect(result.current).toEqual({ rawText: 'What\'s your favorite color?' });
+    expect(result.current).toEqual( 'What\'s your favorite color?');
   });
 
   it('returns dynamicText with placeholders replaced according to rules', () => {
@@ -61,9 +61,7 @@ describe('useDynamicQuestionText', () => {
       wrapper,
     });
 
-    expect(result.current).toEqual({
-      dynamicText: 'Here will be displayed some color.',
-    });
+    expect(result.current).toEqual('Here will be displayed some color.');
   });
 
   it('handles multiple dynamic parts in the question text', () => {
@@ -86,11 +84,7 @@ describe('useDynamicQuestionText', () => {
       wrapper,
     });
 
-    expect(result.current).toEqual({
-      dynamicText:
-        'First question answer was: blue, second question answer was:' +
-        ' green.',
-    });
+    expect(result.current).toEqual('First question answer was: blue, second question answer was: green.');
   });
 
   it('logs error on empty rules array', () => {
@@ -118,8 +112,6 @@ describe('useDynamicQuestionText', () => {
       'There are no dynamic insertions generated for the question - First question answer was: {{firstColor}}, second question answer was: {{secondColor}}.. Check the questionnaire configuration.',
     );
 
-    expect(result.current).toEqual({
-      dynamicText: 'First question answer was: , second question answer was: .',
-    });
+    expect(result.current).toEqual('First question answer was: , second question answer was: .');
   });
 });

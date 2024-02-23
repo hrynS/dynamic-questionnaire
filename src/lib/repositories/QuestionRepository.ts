@@ -1,5 +1,5 @@
 import * as fs from 'fs/promises';
-import path from 'node:path';
+import path from 'path';
 
 class QuestionRepository {
   context: string;

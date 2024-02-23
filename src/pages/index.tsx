@@ -2,6 +2,7 @@ import { Button, Section } from '@/components';
 import Layout from '@/features/Questionnaire/components/Layout';
 import Head from 'next/head';
 import Link from 'next/link';
+
 export default function Home() {
   return (
     <Layout mainClassName={'bg-gradient-primary'}>
