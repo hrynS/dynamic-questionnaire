@@ -3,34 +3,36 @@ module.exports = {
   extends: [
     'eslint:recommended',
     'next',
-    'next/core-web-vitals'
+    'next/core-web-vitals',
+    'plugin:prettier/recommended',
+    'prettier',
   ],
   rules: {
-    'eqeqeq': ['error', 'always'],
+    eqeqeq: ['error', 'always'],
     '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
     'no-unused-vars': 'off',
-    'prefer-const': ['error', {
-      'destructuring': 'any',
-      'ignoreReadBeforeAssign': false
-    }],
-    'indent': ['error', 2, { 'SwitchCase': 1 }],
+    'prefer-const': [
+      'error',
+      {
+        destructuring: 'any',
+        ignoreReadBeforeAssign: false,
+      },
+    ],
+    indent: ['error', 2, { SwitchCase: 1 }],
     'linebreak-style': ['error', 'unix'],
-    'quotes': ['error', 'single'],
-    'semi': ['error', 'always'],
+    quotes: ['error', 'single', { avoidEscape: true }],
+    'prettier/prettier': ['error', { singleQuote: true }],
+    semi: ['error', 'always'],
     'prefer-arrow-callback': 'error',
     'prefer-template': 'error',
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'error',
     'padding-line-between-statements': [
       'error',
-      { 'blankLine': 'always', 'prev': 'function', 'next': '*' },
-      { 'blankLine': 'always', 'prev': '*', 'next': 'function' },
-      { 'blankLine': 'always', 'prev': 'block-like', 'next': '*' },
-    ]
+      { blankLine: 'always', prev: 'function', next: '*' },
+      { blankLine: 'always', prev: '*', next: 'function' },
+      { blankLine: 'always', prev: 'block-like', next: '*' },
+    ],
   },
-  plugins: [
-    '@typescript-eslint'
-  ]
+  plugins: ['@typescript-eslint', 'prettier'],
 };
-
-

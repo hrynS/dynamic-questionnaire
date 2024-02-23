@@ -1,6 +1,6 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-It is a dynamic questionnaire built with Typescript, Next.js and Redux-toolkit. 
+It is a dynamic questionnaire built with Typescript, Next.js and Redux-toolkit.
 
 ## Getting Started
 
@@ -25,4 +25,5 @@ npm build && npm start
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ## Edit questionnaire
+
 Documentation on questionnaire configuration can be found in the [Questions config](./QUESTIONS_CONFIG.md).

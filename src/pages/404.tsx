@@ -1,5 +1,5 @@
 import { ErrorSection } from '@/components';
-import Layout from '@/features/Questionnaire/components/Layout';
+import Layout from '@/lib/features/Questionnaire/components/Layout';
 import Head from 'next/head';
 
 export default function Error404() {

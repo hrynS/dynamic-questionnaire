@@ -1,5 +1,5 @@
 import { Button, Section } from '@/components';
-import Layout from '@/features/Questionnaire/components/Layout';
+import Layout from '@/lib/features/Questionnaire/components/Layout';
 import Head from 'next/head';
 import Link from 'next/link';
 

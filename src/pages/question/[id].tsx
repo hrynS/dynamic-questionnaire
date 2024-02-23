@@ -1,7 +1,7 @@
-import '@/features/Questionnaire/styles/questionnaire.css';
-import Layout from '@/features/Questionnaire/components/Layout';
-import { QUESTION_TYPE_TO_COMPONENT } from '@/features/Questionnaire/constants';
-import { Question, Questionnaire } from '@/features/Questionnaire/types';
+import Layout from '@/lib/features/Questionnaire/components/Layout';
+import { QUESTION_TYPE_TO_COMPONENT } from '@/lib/features/Questionnaire/constants';
+import questionnaireStyles from '@/lib/features/Questionnaire/styles/questionnaire.module.css';
+import { Question, Questionnaire } from '@/lib/features/Questionnaire/types';
 import { QuestionRepository } from '@/lib/repositories';
 import Head from 'next/head';
 
@@ -45,7 +45,7 @@ export default function QuestionPage({ question }: Props) {
       <Head>
         <title>Questionnaire</title>
       </Head>
-      <section className="question-section flex flex-col items-center text-center pt-4 gap-y-7">
+      <section className={`${questionnaireStyles['question-section']} flex flex-col items-center text-center pt-4 gap-y-7`}>
         <QuestionComponent question={question} />
       </section>
     </Layout>
