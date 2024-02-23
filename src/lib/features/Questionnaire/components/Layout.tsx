@@ -3,6 +3,7 @@ import { useAppSelector } from '@/lib/store/hooks';
 import { Open_Sans } from 'next/font/google';
 import { PropsWithChildren } from 'react';
 import { PageHeader } from '@/components';
+import { twMerge } from 'tailwind-merge';
 
 const openSans = Open_Sans({
   subsets: ['latin'],
@@ -28,7 +29,11 @@ export default function Layout({
         isNavigateable={isQuestionnaireNavigateable}
       />
       <main
-        className={`h-full w-full flex flex-col items-center justify-between sm:pt-14 pt-12 ${mainClassName} ${openSans.className}`}
+        className={twMerge(
+          'h-full w-full flex flex-col items-center justify-between sm:pt-14 pt-12',
+          mainClassName,
+          openSans.className,
+        )}
       >
         {children}
       </main>

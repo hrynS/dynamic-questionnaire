@@ -1,5 +1,6 @@
 'use client';
 
+import questionnaireStyles from '@/lib/features/Questionnaire/styles/questionnaire.module.css';
 import { useAppDispatch } from '@/lib/store/hooks';
 import { useQuestionSubmitAction } from '@/lib/features/Questionnaire/hooks';
 import { setFieldValue } from '@/lib/features/Questionnaire/slice';
@@ -26,7 +27,7 @@ export default function SubmitButton<
 
   return (
     <Button
-      className={'button rounded-2xl bg-secondary-white'}
+      className={`${questionnaireStyles['button']} rounded-2xl bg-secondary-white`}
       onClick={() => {
         onAnswer();
       }}

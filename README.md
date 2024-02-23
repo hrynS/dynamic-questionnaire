@@ -10,7 +10,9 @@ First, install the dependencies:
 npm install
 ```
 
-To start the development server:
+Second, create `.env.local` (you can copy the example)
+
+Then, to start the development server:
 
 ```bash
 npm run dev
@@ -19,7 +21,7 @@ npm run dev
 To create and run the production build:
 
 ```bash
-npm build && npm start
+npm run build && npm run start
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.

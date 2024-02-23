@@ -25,7 +25,7 @@ export default function Page() {
         }
       >
         <Button
-          className={'w-full text-lg p-3.5 bg-primary-white text-violet'}
+          className={'w-full text-lg py-3.5 bg-primary-white text-violet'}
           onClick={() => router.push(`${BASE_PATHNAME}/${questionId}`)}
         >
           Next

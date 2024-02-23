@@ -90,10 +90,6 @@ describe('useDynamicQuestionText', () => {
   });
 
   it('logs error on empty rules array', () => {
-    const consoleSpy = jest
-      .spyOn(console, 'error')
-      .mockImplementation(() => {});
-
     store = mockStore({
       questionnaire: {
         q1: { field: 'favoriteColor', value: 'blue', label: 'Blue' },
@@ -106,16 +102,12 @@ describe('useDynamicQuestionText', () => {
       rules: [],
     };
 
-    const { result } = renderHook(() => useDynamicQuestionText(questionText), {
-      wrapper,
-    });
-
-    expect(consoleSpy).toHaveBeenCalledWith(
+    expect(() =>
+      renderHook(() => useDynamicQuestionText(questionText), {
+        wrapper,
+      }),
+    ).toThrow(
       'There are no dynamic insertions generated for the question - First question answer was: {{firstColor}}, second question answer was: {{secondColor}}.. Check the questionnaire configuration.',
-    );
-
-    expect(result.current).toEqual(
-      'First question answer was: , second question answer was: .',
     );
   });
 });

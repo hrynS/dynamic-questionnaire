@@ -45,7 +45,9 @@ export default function QuestionPage({ question }: Props) {
       <Head>
         <title>Questionnaire</title>
       </Head>
-      <section className={`${questionnaireStyles['question-section']} flex flex-col items-center text-center pt-4 gap-y-7`}>
+      <section
+        className={`${questionnaireStyles['question-section']} flex flex-col items-center text-center pt-4 gap-y-7`}
+      >
         <QuestionComponent question={question} />
       </section>
     </Layout>
