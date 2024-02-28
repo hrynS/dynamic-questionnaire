@@ -4,7 +4,7 @@ import { resetQuestionnaire } from '@/lib/features/Questionnaire/slice';
 import Head from 'next/head';
 import Link from 'next/link';
 import { Button, Section } from '@/components';
-import Layout from '@/lib/features/Questionnaire/components/Layout';
+import Layout from '@/lib/features/Questionnaire/components/layouts/Layout';
 
 export default function Page() {
   const dispatch = useAppDispatch();

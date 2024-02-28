@@ -13,9 +13,11 @@ export default function StoreProvider({ children }: PropsWithChildren) {
     storeRef.current = makeStore();
   }
 
-  return <Provider store={storeRef.current}>
-  <PersistGate persistor={persistStore(storeRef.current)}>
-    {children}
-  </PersistGate>
-  </Provider>;
+  return (
+    <Provider store={storeRef.current}>
+      <PersistGate persistor={persistStore(storeRef.current)}>
+        {children}
+      </PersistGate>
+    </Provider>
+  );
 }

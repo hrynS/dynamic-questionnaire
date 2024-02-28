@@ -1,5 +1,5 @@
 import { ErrorSection } from '@/components';
-import Layout from '@/lib/features/Questionnaire/components/Layout';
+import Layout from '@/lib/features/Questionnaire/components/layouts/Layout';
 import { NextPageContext } from 'next';
 import Head from 'next/head';
 

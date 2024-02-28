@@ -1,14 +1,16 @@
-import { ErrorSection } from '@/components';
 import Layout from '@/lib/features/Questionnaire/components/layouts/Layout';
 import Head from 'next/head';
+import { PropsWithChildren } from 'react';
 
-export default function Error404() {
+export default function QuestionnairePageLayout({
+  children,
+}: PropsWithChildren) {
   return (
     <Layout mainClassName={'bg-gradient-primary'}>
       <Head>
-        <title>The page was not found</title>
+        <title>How does this work?</title>
       </Head>
-      <ErrorSection heading={'Oops! The page was not found'} />
+      {children}
     </Layout>
   );
 }

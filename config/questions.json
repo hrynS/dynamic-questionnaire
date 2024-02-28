@@ -149,17 +149,28 @@
       }
     ],
     "next": {
-      "href": "/how-does-this-work",
-      "rules": [
+      "href": "/how-does-this-work"
+    }
+  },
+  "how-does-this-work":{
+    "id": "how-does-this-work",
+    "type":"page",
+    "buttons":[
+      {
+        "label":"Next"
+      }
+    ],
+    "next":{
+      "rules":[
         {
-          "if": "tendsToOverthinking",
-          "is": "yes",
-          "questionId": "whatIsMostImportantToYou"
+          "if":"tendsToOverthinking",
+          "is":"yes",
+          "questionId":"whatIsMostImportantToYou"
         },
         {
-          "if": "tendsToOverthinking",
-          "is": "no",
-          "questionId": "isEmotionalControlTrickyForYou"
+          "if":"tendsToOverthinking",
+          "is":"no",
+          "questionId":"isEmotionalControlTrickyForYou"
         }
       ]
     }

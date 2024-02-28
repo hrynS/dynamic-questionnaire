@@ -1,5 +1,5 @@
 import ErrorSection from '@/components/containers/ErrorBoundary/ErrorSection';
-import Layout from '@/lib/features/Questionnaire/components/Layout';
+import Layout from '@/lib/features/Questionnaire/components/layouts/Layout';
 import Head from 'next/head';
 import React, { PropsWithChildren } from 'react';
 

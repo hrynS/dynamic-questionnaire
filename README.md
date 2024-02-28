@@ -10,7 +10,9 @@ First, install the dependencies:
 npm install
 ```
 
-Second, create `.env.local` (you can copy the example)
+Second, create `.env.local` (you can copy the example) with: 
+- `NODE_ENV` - either production or development environment
+- `DATA_STORAGE_PATH` - path to the questions config from the project root
 
 Then, to start the development server:
 
