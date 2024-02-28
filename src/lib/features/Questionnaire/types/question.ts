@@ -77,3 +77,10 @@ export interface QuestionFieldValueByType {
 export interface Questionnaire {
   [id: Question['id']]: Question;
 }
+
+export interface QuestionnaireConfig {
+  questionnaireEntryQuestion: string;
+  questionnaire: {
+    [id: Question['id']]: Question;
+  };
+}

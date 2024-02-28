@@ -16,10 +16,10 @@ export const useQuestionSubmitAction = (question: Question): SubmitAction => {
     if (questionnaire[question.id]?.value) {
       setShouldSubmitQuestion(true);
     }
-  }, [questionnaire]);
+  }, [questionnaire, question.id]);
 
   // generate link to the next page
-  const createOnSubmitAction = useMemoizedSubmitAction(question, questionnaire);
+  const createOnSubmitAction = useMemoizedSubmitAction(question);
 
   // go to the next page after shouldSubmit flag was to true
   useEffect(() => {
@@ -28,7 +28,7 @@ export const useQuestionSubmitAction = (question: Question): SubmitAction => {
     }
 
     setShouldSubmitQuestion(false);
-  }, [shouldSubmitQuestion, createOnSubmitAction]);
+  }, [questionnaire, shouldSubmitQuestion, createOnSubmitAction]);
 
   return setShouldSubmitQuestion;
 };

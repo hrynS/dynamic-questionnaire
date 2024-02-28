@@ -1,3 +1,7 @@
+import {
+  Question,
+  QuestionnaireConfig,
+} from '@/lib/features/Questionnaire/types';
 import * as fs from 'fs/promises';
 import path from 'path';
 
@@ -14,7 +18,7 @@ class QuestionRepository {
     }
   }
 
-  async getAll() {
+  async getAll(): Promise<QuestionnaireConfig> {
     try {
       return await this.loadJsonFile(this.context);
     } catch {
@@ -22,10 +26,10 @@ class QuestionRepository {
     }
   }
 
-  async getById(id: string) {
+  async getById(id: string): Promise<Question> {
     try {
       const questions = await this.loadJsonFile(this.context);
-      return questions[id];
+      return questions.questionnaire[id];
     } catch {
       throw new Error(
         `An error occured while getting the question with id ${id}`,

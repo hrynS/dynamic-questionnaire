@@ -1,24 +1,19 @@
 import Layout from '@/lib/features/Questionnaire/components/Layout';
 import { QUESTION_TYPE_TO_COMPONENT } from '@/lib/features/Questionnaire/constants';
 import questionnaireStyles from '@/lib/features/Questionnaire/styles/questionnaire.module.css';
-import { Question, Questionnaire } from '@/lib/features/Questionnaire/types';
+import { Question } from '@/lib/features/Questionnaire/types';
 import { QuestionRepository } from '@/lib/repositories';
+import { ParamsWithId } from '@/lib/shared/types';
 import Head from 'next/head';
 
 export async function getStaticPaths() {
-  const questionnaire: Questionnaire = await QuestionRepository.getAll();
+  const { questionnaire } = await QuestionRepository.getAll();
 
   const paths = Object.values(questionnaire).map(({ id }) => ({
     params: { id },
   }));
 
   return { paths, fallback: false };
-}
-
-interface ParamsWithId {
-  params: {
-    id: string;
-  };
 }
 
 export async function getStaticProps({ params }: ParamsWithId) {

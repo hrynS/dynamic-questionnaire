@@ -19,12 +19,9 @@ const raiseErrorOnEmptyUrl = (id: Question['id'], url?: string) => {
   }
 };
 
-export const useMemoizedSubmitAction = (
-  question: Question,
-  questionnaire: QuestionnaireState,
-) => {
+export const useMemoizedSubmitAction = (question: Question) => {
   const router = useRouter();
-  const createOnSubmitAction = useCallback(
+  return useCallback(
     (questionnaire: QuestionnaireState) => {
       const { id, next } = question;
 
@@ -73,8 +70,6 @@ export const useMemoizedSubmitAction = (
           };
       }
     },
-    [question, questionnaire, router],
+    [question, router],
   );
-
-  return createOnSubmitAction;
 };
